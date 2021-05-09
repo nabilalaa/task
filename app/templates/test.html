@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        form{
+            display: flex;
+            justify-content: center;
+            margin: 20px auto;
+            align-items: center;
+            flex-direction: column;
+            background-color: #c61b13;
+            padding: 20px;
+            margin-top: 10px;
+        }
+        input{
+            padding: 5px;
+            outline: none;
+
+        }
+        textarea{
+            resize: none;
+            outline: none;
+            padding: 5px;
+        }
+        body{
+            background-color: #c0a280;
+        }
+        h1{
+            text-align: center;
+            color: #FFF;
+        }
+        button{
+            padding: 10px;
+        }
+        div{
+            background-color: aquamarine;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+<h1>Create Post</h1>
+<form method="post">
+    {% csrf_token %}
+    <input type="text" name="title" required>
+    <br>
+    <textarea name="description" cols="25" rows="20" res></textarea>
+    <br>
+    <button>post</button>
+</form>
+{% for x in posts %}
+<div class="show">
+    <h2>{{ x.title }}</h2>
+    <p>{{ x.description }}</p>
+    <div>{{ x.date }}</div>
+</div>
+
+{% endfor %}
+
+</body>
+</html>
